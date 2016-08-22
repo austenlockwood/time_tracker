@@ -1,8 +1,9 @@
 <h2>All the developers.</h2>
 
 <% @developers.each do |developer| %>
-      <%= developer.name %> | 
-      <%= developer.email %>
+      <%= developer.name %> |
+      <%= developer.email %>  |
+      <%= link_to "Edit", edit_developer_path(developer.id) %>
       <br>
   <% end %>
 

@@ -22,11 +22,17 @@ class DevelopersController < ApplicationController
   end
 
   def edit
-    #code
+    @developer = Developer.find(params["id"])
   end
 
   def update
-    #code
+    @developer = Developer.find(params["id"])
+
+    if @developer.update(developer_params)
+      redirect_to developers_path
+    else
+      render :edit
+    end
   end
 
   def destroy
