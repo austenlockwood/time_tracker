@@ -1,4 +1,5 @@
 class TimeLog < ActiveRecord::Base
-has_many :developers
-has_many :projects
+belongs_to :developer
+belongs_to :project
+
 end

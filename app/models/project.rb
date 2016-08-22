@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-belongs_to :time_log
-has_and_belongs_to_many :developers
+has_many :time_logs
+has_many :developers, through: :time_logs
 
 end

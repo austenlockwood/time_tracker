@@ -1,0 +1,9 @@
+<h2>All the developers.</h2>
+
+<% @developers.each do |developer| %>
+      <%= developer.name %> | 
+      <%= developer.email %>
+      <br>
+  <% end %>
+
+<%= button_to "Add Developer", new_developer_path, method: :get %>
