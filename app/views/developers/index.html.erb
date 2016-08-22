@@ -1,10 +1,11 @@
 <h2>All the developers.</h2>
 
 <% @developers.each do |developer| %>
-      <%= developer.name %> |
-      <%= developer.email %>  |
-      <%= link_to "Edit", edit_developer_path(developer.id) %>
-      <br>
-  <% end %>
+  <%= developer.name %>  |
+  <%= developer.email %>  |
+  <%= link_to "Edit", edit_developer_path(developer.id) %>  |
+  <%= link_to "Delete", developer_path(developer.id), method: :delete %>
+  <br>
+<% end %>
 
 <%= button_to "Add Developer", new_developer_path, method: :get %>

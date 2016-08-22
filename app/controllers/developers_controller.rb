@@ -36,7 +36,9 @@ class DevelopersController < ApplicationController
   end
 
   def destroy
-    #code
+    @developer = Developer.find(params["id"])
+    @developer.destroy
+    redirect_to developers_path
   end
 
   private def developer_params
