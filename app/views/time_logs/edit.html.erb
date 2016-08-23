@@ -1,0 +1,19 @@
+<h2>Edit a Time Entry</h2>
+<%= form_for @time_log, url: time_log_path(id: @time_log.id), method: :patch do |f| %>
+<p>
+  Developer <%= f.select :developer_id, options_from_collection_for_select(Developer.all, 'id', 'name') %>
+</p>
+<p>
+  Date <%= f.date_field :date, value: Time.now.to_date %>
+</p>
+<p>
+  Minutes <%= f.number_field(:minutes, in: 1..1440) %>
+</p>
+<p>
+  <%= f.label :project_id %>
+  <%= f.text_field :project_id %>
+</p>
+<p>
+  <%= f.submit "Save" %>
+</p>
+  <% end %>

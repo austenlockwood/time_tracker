@@ -1,0 +1,15 @@
+<h2>All the time:</h2>
+
+<% @time_logs.each do |time_log| %>
+  <%= time_log.date %>  |
+  <%= time_log.developer_id %>  |
+  <%= time_log.project_id %>  |
+  <%= time_log.minutes %>  |
+  <%= link_to "Edit", edit_time_log_path(time_log.id) %>  |
+  <%= link_to "Delete", developer_path(time_log.id), method: :delete %>
+  <br>
+<% end %>
+<br>
+<%= button_to "Add Developer", new_developer_path, method: :get %>
+<br>
+<%= button_to "New Time Entry", new_time_log_path, method: :get %>
