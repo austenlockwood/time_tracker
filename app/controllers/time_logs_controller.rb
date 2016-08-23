@@ -31,6 +31,12 @@ class TimeLogsController < ApplicationController
     end
   end
 
+  def destroy
+    @time_log = TimeLog.find(params["id"])
+    @time_log.destroy
+    redirect_to time_logs_path
+  end
+
   private def time_log_params
     params.require("time_log").permit(:developer_id, :date, :minutes, :project_id)
   end
