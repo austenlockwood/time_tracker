@@ -1,9 +1,25 @@
-<h2>Add a Developer</h2>
+<h2>Create a developer account</h2>
 <%= form_for @developer, url: developers_path do |f| %>
-  <%= f.label :name %>
+<p><%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :email %>
+</p>
+<p><%= f.label :email %>
   <%= f.text_field :email %>
-  <%= f.submit "Save" %>
+</p>
+<p><%= f.label :password %>
+  <%= f.password_field :password %>
+</p>
+<p><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</p>
+<p><%= f.submit "Save" %>
+</p>
+<% end %>
 
+<% if @developer.errors.any? %>
+<ul>
+  <% for message_error in @developer.errors.full_messages %>
+  <li> <%= message_error %> </li>
+  <% end %>
+</ul>
 <% end %>
