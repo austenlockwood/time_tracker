@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  post 'sessions/create'
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   resources :time_logs
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # Example of regular route:
+  #   post 'sessions/create' => 'sessions#create'
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
