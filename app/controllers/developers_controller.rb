@@ -21,6 +21,7 @@ class DevelopersController < ApplicationController
     #code
   end
 
+#this here is a querying method  .find yeah
   def edit
     @developer = Developer.find(params["id"])
   end
