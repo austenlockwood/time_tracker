@@ -1,4 +1,5 @@
 class DevelopersController < ApplicationController
+  before_action :check_for_authorized_user, except: [:new, :create]
 # use instance variable when you want data to flow to view
   def index
     @developers = Developer.all

@@ -1,0 +1,14 @@
+<h2>All the projects:</h2>
+
+<% @projects.each do |project| %>
+<%= project.name %>  |
+<%= link_to "Edit", edit_project_path(project.id) %>  |
+<%= link_to "Delete", project_path(project.id), method: :delete %>
+<br>
+<% end %>
+<br>
+<%= button_to "New Project", new_project_path, method: :get %>
+<br>
+<%= button_to "New Developer", new_developer_path, method: :get %>
+<br>
+<%= button_to "New Time Entry", new_time_log_path, method: :get %>

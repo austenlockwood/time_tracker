@@ -8,12 +8,11 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-
+<%= link_to "Home", root_path, method: :get %>
   <% if current_user %>
     <p>
-      Signed in as <%= current_user.name %>  |  
-
-    <%= link_to "Log out", sessions_destroy_path, method: :delete %>
+      Signed in as <%= current_user.name %>  |
+      <%= link_to "Log out", sessions_destroy_path, method: :delete %>
     </p>
   <% else %>
     <%= link_to "Register", new_developer_path %>
@@ -22,6 +21,8 @@
 
   <%= notice %>
   <%= yield %>
-
+  <li><%= link_to "Time Entries", time_logs_path, method: :get %></li>
+  <li><%= link_to "Projects", projects_path, method: :get %></li>
+  <li><%= link_to "Developers", developers_path, method: :get %></li>
 </body>
 </html>
