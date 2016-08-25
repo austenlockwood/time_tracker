@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params["id"])
-    
+
     if @project.update(project_params)
       redirect_to projects_path
     else
@@ -38,6 +38,6 @@ class ProjectsController < ApplicationController
   end
 
   private def project_params
-    params.require("project").permit(:name)
+    params.require("project").permit(:name, :max_minutes)
   end
 end
