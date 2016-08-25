@@ -1,8 +1,12 @@
 <h1>Welcome to Time Tracker</h1>
-<h3><i>The most advanced website on the internet!</i></h3>
+<h3><i>The most advanced website on the internet.</i></h3>
 
 
-Log in
-<%= session[:developer_id] %>
+<!-- <p>
+ <%#= session[:developer_welcome] %>
+</p> -->
+<p>
+<%= link_to "Log In", sessions_new_path %>
+</p>
 
 <%# session[:its_a_party_key] %>
