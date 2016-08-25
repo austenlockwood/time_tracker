@@ -1,29 +1,3 @@
-ActiveRecord::Schema.define(version: 20160818192837) do
-
-  create_table "developers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "time_logs", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "developer_id"
-    t.date     "date"
-    t.integer  "minutes"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-end
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -36,3 +10,31 @@ end
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20160825211622) do
+
+  create_table "developers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "max_minutes"
+  end
+
+  create_table "time_logs", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "developer_id"
+    t.date     "date"
+    t.integer  "minutes"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+end
