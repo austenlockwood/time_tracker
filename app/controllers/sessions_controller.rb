@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     # if they log in right:
     if @developer && @developer.authenticate(params[:password])
       # need to be remembered as logged in on all pages
+      session[:developer_id] = @developer.id 
       session[:developer_welcome] = @developer.name
       # session[:its_a_party_key] = "You logged in dude"
       #they get a welcome page REDIRECT
@@ -20,8 +21,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  #
+  # end session by resetting developer id to nil
   def destroy
-
+    session[:developer_id] = nil
+    redirect_to sessions_new_path
   end
 end
