@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= Developer.find_by(id: session[:developer_id])
   end
 
+  helper_method :hours_and_minutes
+
+  def hours_and_minutes(project)
+    hours, minutes = project.max_minutes.divmod(60)
+    "#{hours} hrs, #{minutes} mins"
+  end
+
   # Check if a current_user is present otherwise redirect them.
   def check_for_authorized_user
     unless current_user
