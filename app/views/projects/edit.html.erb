@@ -1,10 +1,18 @@
-<h2>Edit a Project</h2>
-<%= form_for @project, url: project_path(id: @project.id), method: :patch do |f| %>
-  <p><%= f.label :name %>
-     <%= f.text_field :name %></p>
-  <p><%= f.label :max_minutes %>
-     <%= f.number_field :max_minutes %></p>
-     <%= f.submit "Save" %>
-     <%= f.submit "Cancel" %>
+<h2>
+  Edit a project
+</h2>
 
+<%= form_for @project, url: project_path(id: @project.id), method: :patch do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :max_minutes %>
+  <%= f.number_field :max_minutes %>
+</p>
+<p>
+  <%= f.submit "Save" %>
+  <%= f.submit "Cancel" %>
+</p>
 <% end %>

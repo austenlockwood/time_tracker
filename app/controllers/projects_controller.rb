@@ -1,3 +1,4 @@
+# RuboCop wants a top-level class documentation comment here
 class ProjectsController < ApplicationController
   before_action :check_for_authorized_user
   def index
@@ -18,11 +19,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params["id"])
+    @project = Project.find(params['id'])
   end
 
   def update
-    @project = Project.find(params["id"])
+    @project = Project.find(params['id'])
 
     if @project.update(project_params)
       redirect_to projects_path
@@ -32,12 +33,15 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params["id"])
+    @project = Project.find(params['id'])
     @project.destroy
     redirect_to projects_path
   end
 
   private def project_params
-    params.require("project").permit(:name, :max_minutes)
+    params.require('project').permit(
+      :name,
+      :max_minutes
+    )
   end
 end

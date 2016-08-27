@@ -19,7 +19,8 @@
     </td>
     <td>
     </td>
-    <td><%= link_to "Edit", edit_project_path(project.id) %>  |
+    <td>
+      <%= link_to "Edit", edit_project_path(project.id) %>  |
       <%= link_to "Delete", project_path(project.id), method: :delete %>
     </td>
     <% end %>

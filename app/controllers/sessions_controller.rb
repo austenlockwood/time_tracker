@@ -1,3 +1,4 @@
+# RuboCop wants a top-level class documentation comment here
 class SessionsController < ApplicationController
   # show form
   def new
@@ -10,10 +11,10 @@ class SessionsController < ApplicationController
     # if they log in right:
     if @developer && @developer.authenticate(params[:password])
       # need to be remembered as logged in on all pages
-      session[:developer_id] = @developer.id 
+      session[:developer_id] = @developer.id
       session[:developer_welcome] = @developer.name
       # session[:its_a_party_key] = "You logged in dude"
-      #they get a welcome page REDIRECT
+      # they get a welcome page REDIRECT
       redirect_to root_path, notice: "Welcome back, #{@developer.name}!"
     else
       flash[:notice] = 'Password or username wrong. Try again.'

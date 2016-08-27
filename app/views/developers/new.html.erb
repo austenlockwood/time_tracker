@@ -1,25 +1,35 @@
-<h2>New developer</h2>
+<h2>
+  New developer
+</h2>
+
 <%= form_for @developer, url: developers_path do |f| %>
-<p><%= f.label :name %>
+<p>
+  <%= f.label :name %>
   <%= f.text_field :name %>
 </p>
-<p><%= f.label :email %>
+<p>
+  <%= f.label :email %>
   <%= f.text_field :email %>
 </p>
-<p><%= f.label :password %>
+<p>
+  <%= f.label :password %>
   <%= f.password_field :password %>
 </p>
-<p><%= f.label :password_confirmation %>
+<p>
+  <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 </p>
-<p><%= f.submit "Save" %>
+<p>
+  <%= f.submit "Save" %>
 </p>
 <% end %>
 
 <% if @developer.errors.any? %>
 <ul>
   <% for message_error in @developer.errors.full_messages %>
-  <li> <%= message_error %> </li>
+  <li>
+    <%= message_error %>
+  </li>
   <% end %>
 </ul>
 <% end %>
