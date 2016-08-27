@@ -1,17 +1,30 @@
-<h2>All the time:</h2>
-
-<% @time_logs.each do |time_log| %>
-<%= time_log.date %>  |
-<%= time_log.developer.name %>  |
-<%= time_log.project_id %>  |
-<%= time_log.minutes %> minutes  |
-<%= link_to "Edit", edit_time_log_path(time_log.id) %>  |
-<%= link_to "Delete", time_log_path(time_log.id), method: :delete %>
-<br>
-<% end %>
-<br>
-<%= button_to "New Time Entry", new_time_log_path, method: :get %>
-<br>
-<%= button_to "New Project", new_project_path, method: :get %>
-<br>
-<%= button_to "New Developer", new_developer_path, method: :get %>
+<table class="table">
+  <h2>My time entries</h2>
+  <th>Date</th>
+  <th>Project</th>
+  <th>Time Entered</th>
+  <th></th>
+  <tbody>
+    <% @time_logs.each do |time_log| %>
+      <%= content_tag_for :tr, time_log do %>
+    <td>
+      <%= time_log.date %>
+    </td>
+    <td>
+    <!-- <%#= time_log.project.name if time_log.project %>
+    <%#= time_log.project&.name %>   -->
+    <%= time_log.project.try(:name)  %>
+  </td>
+  <td>
+    <%= time_log.minutes %> minutes
+  </td>
+  <td>
+    <!-- will delete this developer line later; using now to confirm only time entries for logged in person display -->
+    < <%= time_log.developer.name %> >
+    <%= link_to "Edit", edit_time_log_path(time_log.id) %>  |
+    <%= link_to "Delete", time_log_path(time_log.id), method: :delete %>
+  </td>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

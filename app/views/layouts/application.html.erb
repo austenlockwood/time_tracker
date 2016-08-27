@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title">
   <title>TimeTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,21 +11,59 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-<%= link_to "Home", root_path, method: :get %>
-  <% if current_user %>
-    <p>
-      Signed in as <%= current_user.name %>  |
-      <%= link_to "Log out", sessions_destroy_path, method: :delete %>
-    </p>
-  <% else %>
-    <%= link_to "Register", new_developer_path %>
-    <%= link_to "Sign in", sessions_new_path %>
-  <% end %>
 
-  <%= notice %>
-  <%= yield %>
-  <li><%= link_to "Time Entries", time_logs_path, method: :get %></li>
-  <li><%= link_to "Projects", projects_path, method: :get %></li>
-  <li><%= link_to "Developers", developers_path, method: :get %></li>
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Time Tracker</a>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          <li><%= link_to "Time Entries", time_logs_path, method: :get %></li>
+          <li><%= link_to "Projects", projects_path, method: :get %></li>
+          <li><%= link_to "Developers", developers_path, method: :get %></li>
+          <p class="navbar-text">
+            <%= current_user.name %>  |
+            <%= link_to "Log out", sessions_destroy_path, method: :delete %>
+          </p>
+          <% else %>
+          <%= link_to "Register", new_developer_path %>
+          <%= link_to "Sign in", sessions_new_path %>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-lg-9">
+
+      <%= notice %>
+
+      <%= yield %>
+
+    </div>
+
+    <div class="col-lg-3">
+      <div class="well sidebar-nav">
+        <h3>Make a new</h3>
+        <ul class="nav nav-list">
+          <li>
+            <%= button_to "Project", new_project_path, method: :get, class: "btn btn-secondary"  %>
+          </li><br>
+          <li>
+            <%= button_to "Developer", new_developer_path, method: :get, class: "btn btn-secondary"  %>
+          </li><br>
+          <li>
+            <%= button_to "Time Entry", new_time_log_path, method: :get, class: "btn btn-secondary"  %>
+          </li><br>
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

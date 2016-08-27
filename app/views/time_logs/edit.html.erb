@@ -4,11 +4,10 @@
   Date <%= f.date_field :date, value: Time.now.to_date %>
 </p>
 <p>
-  Minutes <%= f.number_field(:minutes, in: 1..1440) %>
+  Project <%= f.text_field :project_id %>
 </p>
 <p>
-  <%= f.label :project_id %>
-  <%= f.text_field :project_id %>
+  Minutes <%= f.number_field(:minutes, in: 1..1440) %>
 </p>
 <p>
   <%= f.submit "Save" %>

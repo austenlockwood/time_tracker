@@ -1,15 +1,28 @@
-<h2>All the projects:</h2>
-
-<% @projects.each do |project| %>
-<%= project.name %>  |
-<%= project.max_minutes %>  |
-<%= link_to "Edit", edit_project_path(project.id) %>  |
-<%= link_to "Delete", project_path(project.id), method: :delete %>
-<br>
-<% end %>
-<br>
-<%= button_to "New Project", new_project_path, method: :get %>
-<br>
-<%= button_to "New Developer", new_developer_path, method: :get %>
-<br>
-<%= button_to "New Time Entry", new_time_log_path, method: :get %>
+<table class="table">
+  <h2>Projects</h2>
+  <th>Name</th>
+  <th>ID</th>
+  <th>Allowed Time</th>
+  <th>Time Entered</th>
+  <th></th>
+  <tbody>
+    <% @projects.each do |project| %>
+    <%= content_tag_for :tr, project do %>
+    <td>
+      <%= project.name %>
+    </td>
+    <td>
+      <%= project.id %>
+    </td>
+    <td>
+      <%= project.max_minutes %> mins
+    </td>
+    <td>
+    </td>
+    <td><%= link_to "Edit", edit_project_path(project.id) %>  |
+      <%= link_to "Delete", project_path(project.id), method: :delete %>
+    </td>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
