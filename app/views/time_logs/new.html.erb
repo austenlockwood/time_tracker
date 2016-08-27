@@ -8,14 +8,24 @@
   <%= f.date_field :date, value: Time.now.to_date %>
 </p>
 <p>
-  <%= f.label :project %>
-  <%= f.select :project, Project.all.collect { |p| [p.name, p.id] }, include_blank: true %>
+  <%= f.label :project_id, :Project %>
+  <%= f.select :project_id, Project.all.collect { |p| [p.name, p.id] }, include_blank: true %>
 </p>
 <p>
   <%= f.label :minutes %>
-  <%= f.number_field(:minutes, in: 1..1440) %>
+  <%= f.number_field :minutes, step: 15, in: 0..1440 %>
 </p>
 <p>
   <%= f.submit "Save" %>
 </p>
+<% end %>
+
+<% if @time_log.errors.any? %>
+<ul>
+  <% for message_error in @time_log.errors.full_messages %>
+  <li>
+    <%= message_error %>
+  </li>
+  <% end %>
+</ul>
 <% end %>

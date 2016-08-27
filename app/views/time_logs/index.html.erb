@@ -13,7 +13,7 @@
     <td>
       <!-- <%#= time_log.project.name if time_log.project %>  #synonymous with: -->
       <!-- <%#= time_log.project&.name %>                     #synonymous with: -->
-      <%= time_log.project.try(:name)  %>
+      <%= time_log.project.try(:name) %>
     </td>
     <td>
       <%= time_log.minutes %> minutes

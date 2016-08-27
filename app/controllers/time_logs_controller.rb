@@ -42,7 +42,11 @@ class TimeLogsController < ApplicationController
   end
 
   private def time_log_params
-    params.require('time_log').permit(:date, :minutes, :project_id)
+    params.require('time_log').permit(
+      :date,
+      :minutes,
+      :project_id
+    )
   end
 
   private def unauthorized
