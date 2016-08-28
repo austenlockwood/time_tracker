@@ -1,7 +1,6 @@
 <table class="table">
   <h2>Projects</h2>
   <th>Name</th>
-  <th>ID</th>
   <th>Allowed Time</th>
   <th>Time Entered</th>
   <th></th>
@@ -12,12 +11,10 @@
       <%= project.name %>
     </td>
     <td>
-      <%= project.id %>
+      <%= hours_and_minutes(project.max_minutes) %>
     </td>
     <td>
-      <%= hours_and_minutes(project) %>
-    </td>
-    <td>
+      <%= hours_and_minutes(project.sum_of_time_entered) %>
     </td>
     <td>
       <%= link_to "Edit", edit_project_path(project.id) %>  |

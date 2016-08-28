@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :hours_and_minutes
 
-  def hours_and_minutes(project)
-    hours, minutes = project.max_minutes.divmod(60)
+  def hours_and_minutes(num_of_minutes)
+    hours, minutes = num_of_minutes.divmod(60)
     "#{hours} hrs, #{minutes} mins"
   end
+
+
 
   # Check if a current_user is present otherwise redirect them.
   def check_for_authorized_user

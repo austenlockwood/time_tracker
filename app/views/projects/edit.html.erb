@@ -9,10 +9,20 @@
 </p>
 <p>
   <%= f.label :max_minutes %>
-  <%= f.number_field :max_minutes %>
+  <%= f.number_field :max_minutes, step: 15, min: 120 %>
 </p>
 <p>
   <%= f.submit "Save" %>
   <%= f.submit "Cancel" %>
 </p>
+<% end %>
+
+<% if @project.errors.any? %>
+<ul>
+  <% for message_error in @project.errors.full_messages %>
+  <li>
+    <%= message_error %>
+  </li>
+  <% end %>
+</ul>
 <% end %>

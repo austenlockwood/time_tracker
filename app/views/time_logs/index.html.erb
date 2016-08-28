@@ -19,8 +19,6 @@
       <%= time_log.minutes %> minutes
     </td>
     <td>
-      <!-- will delete this developer line later; using now to confirm only time entries for logged in person display -->
-      < <%= time_log.developer.name %> >
       <%= link_to "Edit", edit_time_log_path(time_log.id) %>  |
       <%= link_to "Delete", time_log_path(time_log.id), method: :delete %>
     </td>
