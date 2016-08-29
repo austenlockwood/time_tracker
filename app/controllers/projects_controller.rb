@@ -34,8 +34,12 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params['id'])
-    @project.destroy
-    redirect_to projects_path
+    if @project.destroy
+      redirect_to projects_path, notice: "Project '#{@project.name}' successfully deleted!"
+    else
+      redirect_to projects_path, notice:
+      @project.errors.full_messages.join("\n")
+    end
   end
 
   private def project_params

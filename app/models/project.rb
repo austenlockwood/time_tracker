@@ -1,6 +1,6 @@
 # project model
 class Project < ActiveRecord::Base
-  has_many :time_logs
+  has_many :time_logs, dependent: :restrict_with_error
   has_many :developers, through: :time_logs
   validates :name, uniqueness: true, presence: true
   validates_numericality_of :max_minutes, greater_than: 119, message: '| Projects must allow a minimum of two hours.'
