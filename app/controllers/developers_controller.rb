@@ -40,8 +40,11 @@ class DevelopersController < ApplicationController
 
   def destroy
     @developer = Developer.find(params['id'])
-    @developer.destroy
-    redirect_to developers_path
+    if @developer.destroy
+      redirect_to developers_path, notice: 'Developer was destroyed!'
+    else
+      redirect_to developers_path, notice: @developer.errors.full_messages.join("\n")
+    end
   end
 
   private def developer_params

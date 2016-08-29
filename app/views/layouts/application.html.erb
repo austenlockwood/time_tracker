@@ -31,8 +31,10 @@
             <%= link_to "Log out", sessions_destroy_path, method: :delete %>
           </p>
           <% else %>
-          <%= link_to "Register", new_developer_path %>
-          <%= link_to "Sign in", sessions_new_path %>
+          <p class="navbar-text">
+            <%= link_to "Register", new_developer_path %>  |  
+            <%= link_to "Sign in", sessions_new_path %>
+          </p>
           <% end %>
 
         </ul>

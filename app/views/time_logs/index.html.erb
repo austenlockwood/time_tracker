@@ -16,7 +16,7 @@
       <%= time_log.project.try(:name) %>
     </td>
     <td>
-      <%= time_log.minutes %> minutes
+      <%= hours_and_minutes(time_log.minutes) %>
     </td>
     <td>
       <%= link_to "Edit", edit_time_log_path(time_log.id) %>  |
