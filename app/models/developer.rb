@@ -5,6 +5,13 @@ class Developer < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
   has_secure_password
 
+  def time_entered_in_current_week
+    # TimeLog.where(developer_id: id)# will add date stuff
+    time_logs.where(date: Date.today.all_week).map do |time_log|
+      time_log.minutes
+    end.sum
+  end
+
   # before_destroy :cannot_delete_developers_with_time_entered
   #
   # def cannot_delete_developers_with_time_entered

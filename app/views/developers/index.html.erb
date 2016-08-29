@@ -7,17 +7,23 @@
   <tbody>
     <% @developers.each do |developer| %>
     <%= content_tag_for :tr, developer do %>
-    <td>
-      <%= developer.name %>
-    </td>
-    <td>
-      <%= developer.email %>
-    </td>
-    <td>
-      <%= link_to "Edit", edit_developer_path(developer.id) %>  |
-      <%= link_to "Delete", developer_path(developer.id), method: :delete %>
-    </td>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+    <% if developer.time_entered_in_current_week > 2400 %>
+    <tr class="text-danger">
+      <% else %>
+      <tr>
+        <% end %>
+        <td>
+          <%= developer.name %>
+        </td>
+        <td>
+          <%= developer.email %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_developer_path(developer.id) %>  |
+          <%= link_to "Delete", developer_path(developer.id), method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
